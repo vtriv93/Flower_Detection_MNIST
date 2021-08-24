@@ -19,4 +19,4 @@ steps:
    - '--platform'
    - 'managed'
 images:
-- 'gcr.io/flower-detection-323915/app:$COMMIT_SHA
+- 'gcr.io/flower-detection-323915/app:$COMMIT_SHA'
