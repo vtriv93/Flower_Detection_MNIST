@@ -1,0 +1,65 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: deployment
+  namespace: '908553444513'
+  selfLink: /apis/serving.knative.dev/v1/namespaces/908553444513/services/deployment
+  uid: df2362c3-0e66-4ebe-b973-1a485d44ae67
+  resourceVersion: AAXKWCSQrRY
+  generation: 2
+  creationTimestamp: '2021-08-25T01:24:07.813756Z'
+  labels:
+    managed-by: gcp-cloud-build-deploy-cloud-run
+    gcb-trigger-id: c3ee7d80-3093-4dfb-820a-df1a2f26fad4
+    cloud.googleapis.com/location: us-central1
+  annotations:
+    run.googleapis.com/client-name: cloud-console
+    serving.knative.dev/creator: vtriv93@gmail.com
+    serving.knative.dev/lastModifier: vtriv93@gmail.com
+    client.knative.dev/user-image: gcr.io/cloudrun/placeholder
+    run.googleapis.com/ingress: internal-and-cloud-load-balancing
+    run.googleapis.com/ingress-status: internal-and-cloud-load-balancing
+spec:
+  template:
+    metadata:
+      name: deployment-placeholder
+      annotations:
+        run.googleapis.com/client-name: cloud-console
+        autoscaling.knative.dev/maxScale: '100'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      serviceAccountName: 908553444513-compute@developer.gserviceaccount.com
+      containers:
+      - image: gcr.io/cloudrun/placeholder
+        ports:
+        - name: http1
+          containerPort: 8080
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+  traffic:
+  - percent: 100
+    latestRevision: true
+status:
+  observedGeneration: 2
+  conditions:
+  - type: Ready
+    status: 'True'
+    lastTransitionTime: '2021-08-25T01:26:42.186949Z'
+  - type: ConfigurationsReady
+    status: 'True'
+    lastTransitionTime: '2021-08-25T01:26:18.822373Z'
+  - type: RoutesReady
+    status: 'True'
+    lastTransitionTime: '2021-08-25T01:26:42.947350Z'
+  latestReadyRevisionName: deployment-placeholder
+  latestCreatedRevisionName: deployment-placeholder
+  traffic:
+  - revisionName: deployment-placeholder
+    percent: 100
+    latestRevision: true
+  url: https://deployment-6te33eokeq-uc.a.run.app
+  address:
+    url: https://deployment-6te33eokeq-uc.a.run.app
